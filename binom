@@ -1,0 +1,66 @@
+package binom_açılım_ödevi;
+import java.util.Scanner;
+
+
+public class binom_açılım_ödev {
+
+// faktöriyel bulan geriye değer döndüren metod.	
+	
+private static double faktöriyel_bulma(double sayi) {
+		
+double sonuc = 1;	
+			
+for (int i = 1; i <= sayi; i++) {
+			
+sonuc*=i;	
+			
+}
+return sonuc;		
+}	
+		
+// kombinasyonu bulan geriye değer döndüren metod.	
+
+private static double konbinasyon(double n,double k) {
+			
+double son = faktöriyel_bulma(n)/(faktöriyel_bulma(k)*faktöriyel_bulma(n-k));
+
+return son;	
+		
+}
+
+		
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+// binom açılımı bulan kod	
+Scanner scanner = new Scanner(System.in);	
+
+System.out.println("örnek: (a+b)^n = ");
+
+System.out.println("a değerini girin:" );			
+double a = scanner.nextInt();
+
+
+System.out.println("b değerini giriniz: ");
+double b = scanner.nextInt();
+
+System.out.println("n değerini girin: ");
+int n = scanner.nextInt();
+
+int c =n;
+
+for (int k = 0; k <= n; k++) {
+		
+
+double kombinasyon = konbinasyon(n, k);	
+
+double a_deher = Math.pow(a,c);	
+c--;	
+
+double b_deheri = Math.pow(b, k);
+
+System.out.println(kombinasyon*a_deher*b_deheri);
+}
+			
+}
+}
